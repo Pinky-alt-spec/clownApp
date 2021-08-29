@@ -2,7 +2,7 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated and user.is_staff and user.is_superuser%}
 {% include 'clownApp/partials/topbar.html' %}
 
 <div class="container">
@@ -93,5 +93,7 @@
         </div>
     </div>
 </div>
-
+{% else %}
+{% include 'clownApp/dashboard/client_index.html' %}}
+{% endif %}
 {% endblock %}

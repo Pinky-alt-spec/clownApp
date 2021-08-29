@@ -1,0 +1,51 @@
+<div class="container">
+    {% load crispy_forms_tags %}
+<div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Make Request
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-info btn-block" type="submit" value="Make Request">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Appointment Request(s)
+                </div>
+                <div class="card-body">
+                    <table class="table bg-white">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <td>Clown & Activity</td>
+                                <td>Appointment Date</td>
+                                <td>Start Time</td>
+                                <td>End Time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for clown in clowns %}
+                            {% if clown.client == user %}
+                            <tr>
+                                <td>{{ clown.activity }}</td>
+                                <td>{{ clown.appointment_date }}</td>
+
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
