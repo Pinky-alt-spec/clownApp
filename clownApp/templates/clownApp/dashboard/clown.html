@@ -1,0 +1,42 @@
+{% extends 'clownApp/partials/base.html' %}
+{% block title %}Clown Page{% endblock %}
+
+
+{% block content %}
+
+{% include 'clownApp/partials/topbar.html' %}
+
+ <!--Table-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-12">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+
+                        <th scope="col">Clown & Activity</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">Clown & Activity</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--End Table-->
+
+{% endblock %}
+
+
+

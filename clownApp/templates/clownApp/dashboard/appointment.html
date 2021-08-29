@@ -1,0 +1,64 @@
+{% extends 'clownApp/partials/base.html' %}
+{% block title %}Appointment Page{% endblock %}
+
+
+{% block content %}
+
+{% include 'clownApp/partials/topbar.html' %}
+
+ <!--Table-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+            <div class="border bg-white p-3">
+                <h4>Set an Appointment</h4>
+                <hr>
+                    {% for message in messages %}
+                    {% if message %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <input class="btn btn-success btn-block" type="submit" value="Set an Appointment">
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                <tr class="text-white">
+                    <td>Appointment Date</td>
+                    <td>Client</td>
+                    <td>Clown</td>
+                    <td>Start Time</td>
+                    <td>End Time</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                   <td>Appointment Date</td>
+<!--                   {{ appointment_form.appointment_date }}-->
+                    <td>Client</td>
+                    <td>Clown</td>
+                    <td>Start Time</td>
+                    <td>End Time</td>
+                    <td>Status</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="">Delete</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
