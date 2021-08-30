@@ -16,7 +16,7 @@ class Clown(models.Model):
     status = models.CharField(max_length=50, choices=STATUS, null=True)
 
     def __str__(self):
-        return self.clown
+        return str(self.status)
 
 
 ACTIVITY = (
@@ -34,7 +34,7 @@ class Appointment(models.Model):
     activity = models.CharField(max_length=30, choices=ACTIVITY, null=True)
 
     def __str__(self):
-        return self.clown
+        return str(self.clown)
 
 
 
