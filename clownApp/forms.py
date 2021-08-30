@@ -1,14 +1,8 @@
 from django import forms
+from .models import Appointment
 
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
-
-
-class AppointmentForm(forms.Form):
-    appointment_date = forms.DateField(widget=DateInput)
-
-
-class AppointmentModelForm(forms.Form):
+class AppointmentForm(forms.ModelForm):
     class Meta:
-        widget = {'appointment_date': DateInput()}
+        model = Appointment
+        fields = ['clown', 'client', 'activity']

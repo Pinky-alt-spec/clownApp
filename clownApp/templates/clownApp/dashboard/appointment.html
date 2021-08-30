@@ -1,6 +1,6 @@
 {% extends 'clownApp/partials/base.html' %}
 {% block title %}Appointment Page{% endblock %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -23,7 +23,7 @@
                 <hr>
                 <form method="POST">
                     {% csrf_token %}
-
+                    {{ form|crispy }}
                     <input class="btn btn-success btn-block" type="submit" value="Set an Appointment">
                 </form>
             </div>
@@ -35,30 +35,29 @@
                     <td>Appointment Date</td>
                     <td>Client</td>
                     <td>Clown</td>
-                    <td>Start Time</td>
-                    <td>End Time</td>
-                    <td>Status</td>
+                    <td>Activity</td>
                     <td>Action</td>
+
                 </tr>
                 </thead>
                 <tbody>
-                   <td>Appointment Date</td>
-<!--                   {{ appointment_form.appointment_date }}-->
-                    <td>Client</td>
-                    <td>Clown</td>
-                    <td>Start Time</td>
-                    <td>End Time</td>
-                    <td>Status</td>
+                {% for item in items %}
+                <tr>
+                   <td>{{ appointment_form.appointment_date }}</td>
+                    <td>{{ item.client }}</td>
+                    <td>{{ item.clown }}</td>
+                    <td>{{ item.activity }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="">Edit</a>
-                        <a class="btn btn-danger btn-sm" href="">Delete</a>
+                        <a class="btn btn-info btn-sm" href="{% url 'dashboard-appointment-update' item.id %}">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'dashboard-appointment-delete' item.id %}">Delete</a>
                     </td>
                 </tr>
-
+                {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 
 {% endblock %}
