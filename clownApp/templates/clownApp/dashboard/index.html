@@ -15,9 +15,9 @@
                   var myChart = new Chart(ctx, {
                       type: 'pie',
                       data: {
-                          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                          labels: [{% for clown in clowns %} '{{ clown.clown }}', {% endfor %}],
                           datasets: [{
-                              label: 'Appointments',
+                              label: 'Clowns',
                               data: [12, 19, 3, 5, 2, 3],
                               backgroundColor: [
                                   'rgba(255, 99, 132, 1)',
@@ -57,7 +57,7 @@
                       var myCharts = new Chart(ctx, {
                           type: 'bar',
                           data: {
-                              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                              labels: [{% for appoint in appoints %} '{{ appointment.client }}', {% endfor %}],
                               datasets: [{
                                   label: 'Appointments',
                                   data: [12, 19, 3, 5, 2, 3],

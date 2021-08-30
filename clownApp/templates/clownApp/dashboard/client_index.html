@@ -26,9 +26,9 @@
                         <thead class="bg-info text-white">
                             <tr>
                                 <td>Clown & Activity</td>
-                                <td>Appointment Date</td>
-                                <td>Start Time</td>
-                                <td>End Time</td>
+                                <td>Appointment Status</td>
+
+
                             </tr>
                         </thead>
                         <tbody>
@@ -36,7 +36,7 @@
                             {% if clown.client == user %}
                             <tr>
                                 <td>{{ clown.activity }}</td>
-                                <td>{{ clown.appointment_date }}</td>
+                                <td>{{ clown.status }}</td>
 
                             </tr>
                             {% endif %}

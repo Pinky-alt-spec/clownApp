@@ -14,20 +14,22 @@
                 <thead class="bg-info">
                     <tr class="text-white">
 
-                        <th scope="col">Clown & Activity</th>
-                        <th scope="col">Appointment Date</th>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
+                        <th scope="col">Clown Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Appointment By</th>
+
                     </tr>
                 </thead>
                 <tbody>
+                 {% for clown in clowns %}
                     <tr>
-                        <th scope="col">Clown & Activity</th>
-                        <th scope="col">Appointment Date</th>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
+                        <th scope="col">{{ clown.clown}}</th>
+                        <th scope="col">{{ clown.price }}</th>
+                        <th scope="col">{{ clown.status }}</th>
+                        <th scope="col">{{ clown.username }}</th>
                     </tr>
-
+                 {% endfor %}
                 </tbody>
             </table>
         </div>

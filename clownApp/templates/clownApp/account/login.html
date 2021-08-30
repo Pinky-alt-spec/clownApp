@@ -9,6 +9,13 @@
             <div class="col-md-6 offset-md-3">
                 <div class="border bg-white p-3">
                     <h3>Login Page</h3>
+                     {% for message in messages %}
+                    {% if message %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
                     <hr>
                     <form method="POST">
                         {% csrf_token %}
@@ -20,5 +27,6 @@
             </div>
         </div>
     </div>
+
 
 {% endblock %}
