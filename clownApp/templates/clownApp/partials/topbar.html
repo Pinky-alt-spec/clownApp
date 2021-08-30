@@ -31,7 +31,7 @@
                             <a class="text-decoration-none text-dark" href="{% url 'dashboard-clown' %}">
                                 <div class="card my-card shadow text-center p-3">
                                     <h4>Clowns</h4>
-                                    <h3>4</h3>
+                                    <h3>{{ clowns_count }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -39,7 +39,7 @@
                             <a class="text-decoration-none text-dark" href="{% url 'dashboard-appointment' %}">
                                 <div class="card my-card shadow text-center p-3">
                                     <h4>Appointment</h4>
-                                    <h3>6</h3>
+                                    <h3>{{ appointment_count }}</h3>
                                 </div>
                             </a>
                         </div>

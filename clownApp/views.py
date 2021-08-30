@@ -14,7 +14,7 @@ def index(request):
         form = ClownForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.staff = request.user
+            instance.client = request.user
             instance.save()
             return redirect('dashboard-index')
     else:
@@ -31,7 +31,9 @@ def index(request):
 @login_required
 def appointment(request):
     items = Appointment.objects.all()
+    appointment_count = items.count()
     clients_count = User.objects.all().count()
+    clowns_count = Clown.objects.all().count()
 
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -47,6 +49,8 @@ def appointment(request):
         'items': items,
         'form': form,
         'clients_count': clients_count,
+        'clowns_count': clowns_count,
+        'appointment_count': appointment_count,
     }
     return render(request, 'clownApp/dashboard/appointment.html', context)
 
@@ -79,10 +83,14 @@ def appointment_update(request, pk):
 def client(request):
     clients = User.objects.all()
     clients_count = clients.count()
+    clowns_count = Clown.objects.all().count()
+    appointment_count = Appointment.objects.all().count()
 
     context = {
         'clients': clients,
         'clients_count': clients_count,
+        'clowns_count': clowns_count,
+        'appointment_count': appointment_count,
     }
     return render(request, 'clownApp/dashboard/client.html', context)
 
@@ -98,11 +106,15 @@ def client_detail(request, pk):
 @login_required
 def clown(request):
     clowns = Clown.objects.all()
+    clowns_count = clowns.count()
     clients_count = User.objects.all().count()
+    appointment_count = Appointment.objects.all().count()
 
     context = {
         'clowns': clowns,
         'clients_count': clients_count,
+        'clowns_count': clowns_count,
+        'appointment_count': appointment_count,
     }
     return render(request, 'clownApp/dashboard/clown.html', context)
 
