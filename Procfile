@@ -1,0 +1,1 @@
+web: gunicorn clowns.wsgi --log-file -
